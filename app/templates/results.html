@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Results - InfoFetch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Summary for your query</h1>
+
+        <div class="final-summary-box">
+            <h2>Final Summary</h2>
+            <p>{{ summary }}</p>
+        </div>
+
+        <div class="articles-section">
+            <h2>Source Articles</h2>
+            {% for article in articles %}
+                <div class="article-box">
+                    <h3><a href="{{ article.url }}" target="_blank">{{ article.title }}</a></h3>
+                    <p>{{ article.summary }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a href="/" class="back-button">Search Again</a>
+    </div>
+</body>
+
+</html>
